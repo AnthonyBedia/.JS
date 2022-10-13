@@ -1,0 +1,39 @@
+(function () {
+    const pageNumInput = $("#PageNum");
+    const pageNumBu
+            const pageNum = parseInt(pageNumStr, 10);
+            if (pageNum) {
+                nextplease.sendMessageToActiveTab({ number: pageNum });
+            } else {
+                nextplease.notify({
+                    titleKey: "pageNumErrorTitle",
+                    messageKey: "pageNumErrorMsg",
+
+    }
+ 
+    pageNumInput.keyup((e) => {
+        pageNumButton.attr("disabled", !parseInt(pageNumInput.val(), 10));
+    });
+    pageNumInput.change(goToPage);
+    pageNumButton.click(goToPage);
+ 
+    for (const direction of nextplease.directions) {
+        $(`#${direction}`).click(e => {
+            nextplease.sendMessageToActiveTab({ direction: direction });
+        });
+    }
+ 
+    $("#Options").click(e => browser.runtime.openOptionsPage());
+ 
+    browser.c
+                if (command.shortcut) {
+                    const shortcutText = command.shortcut;
+                    // TODO Below doesn't work
+                    // const shortcutText = command.shortcut.split("+").map(ShortcutCustomizeUI.getLocalizedKey).join("+");
+                    // https://github.com/piroor/webextensions-lib-shortcut-customize-ui/issues/7
+                    element.title = `${element.title} (${shortcutText})`;
+                }
+            }
+        }
+    });
+})();
